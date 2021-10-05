@@ -44,11 +44,11 @@
         <div class="form-group">
             {{field.label_tag}}
             <div>{{field}}</div>
-            <div class="error">
-              {% if errors %}
-              {{ errors }}
-              {% endif %}
-            </div>
+             {% if errors %}
+            {% for error in errors %}
+            <div style="color: darkred;" class="error">{{ error }}</div>
+            {% endfor %}
+            {% endif %}
         </div>
         {% endfor %}
         </div>

@@ -8,7 +8,6 @@ import spacy
 
 
 def index(request):
-	print(1)
 	if request.method == 'POST':
 		print(2)
 		form = MainForm(request.POST)
@@ -27,8 +26,7 @@ def index(request):
 				fields_to_db.save()
 			return redirect(output_view)
 		else:
-			msg = form.errors.as_data()['free_text_field'][0]
-			print(msg)
+			msg = form.errors['free_text_field']
 			return render(request, 'index.html', {'form': form, 'errors': msg})
 
 	form = MainForm()
